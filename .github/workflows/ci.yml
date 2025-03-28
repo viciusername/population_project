@@ -1,5 +1,3 @@
-- name: Set up PYTHONPATH
-  run: echo "PYTHONPATH=$PYTHONPATH:$(pwd)" >> $GITHUB_ENV
 name: CI Pipeline
 
 on: [push, pull_request]
@@ -19,6 +17,9 @@ jobs:
       - name: Встановлення залежностей
         run: |
           pip install -r requirements.txt
+
+      - name: Set up PYTHONPATH
+        run: echo "PYTHONPATH=$PYTHONPATH:$(pwd)" >> $GITHUB_ENV
 
       - name: Запуск тестів з HTML-звітом
         run: pytest --html=report.html --self-contained-html

@@ -13,9 +13,11 @@ def read_population_data(file_path: str) -> List[Tuple[str, float, int]]:
 
             country, area, population = parts
             try:
-                data.append(
-                    (country.strip(), float(area.strip()), int(population.strip()))
-                )
+                country = country.strip()
+                area = float(area.strip())
+                population = int(population.strip())
+
+                data.append((country, area, population))
             except ValueError:
                 continue
 
@@ -27,8 +29,6 @@ def sort_by_area(data: List[Tuple[str, float, int]]) -> List[Tuple[str, float, i
     return sorted(data, key=lambda x: x[1], reverse=True)
 
 
-def sort_by_population(
-    data: List[Tuple[str, float, int]]
-) -> List[Tuple[str, float, int]]:
+def sort_by_population(data: List[Tuple[str, float, int]]) -> List[Tuple[str, float, int]]:
     """Сортує список за населенням (від більшого до меншого)."""
     return sorted(data, key=lambda x: x[2], reverse=True)

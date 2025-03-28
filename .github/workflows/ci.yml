@@ -1,3 +1,5 @@
+- name: Set up PYTHONPATH
+  run: echo "PYTHONPATH=$PYTHONPATH:$(pwd)" >> $GITHUB_ENV
 name: CI Pipeline
 
 on: [push, pull_request]

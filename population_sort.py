@@ -26,9 +26,17 @@ def read_population_data(file_path: str) -> List[Tuple[str, float, int]]:
 
 def sort_by_area(data: List[Tuple[str, float, int]]) -> List[Tuple[str, float, int]]:
     """Сортує список за площею (від більшого до меншого)."""
-    return sorted(data, key=lambda x: x[1], reverse=True)
+    return sorted(
+        data,
+        key=lambda x: x[1],
+        reverse=True
+    )
 
 
 def sort_by_population(data: List[Tuple[str, float, int]]) -> List[Tuple[str, float, int]]:
     """Сортує список за населенням (від більшого до меншого)."""
-    return sorted(data, key=lambda x: x[2], reverse=True)
+    return sorted(
+        data,
+        key=lambda x: x[2],
+        reverse=True
+    )
